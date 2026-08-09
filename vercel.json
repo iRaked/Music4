@@ -1,15 +1,27 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "public": true,
   "rewrites": [
     { "source": "/assets/(.*)", "destination": "/assets/$1" }
   ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/(.*).json",
       "headers": [
-        { "key": "Content-Type", "value": "audio/mpeg" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/assets/(.*).(mp3|MP3|m4a|ogg|wav)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Type", "value": "audio/mpeg" }
+      ]
+    },
+    {
+      "source": "/assets/(.*).(jpg|jpeg|png|gif|webp)",
+      "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
